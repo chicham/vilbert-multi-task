@@ -33,13 +33,30 @@ def ForwardModelsVal(args, task_cfg, device, task_id, batch, model, task_losses)
     batch = tuple(t.cuda(device=device, non_blocking=True) for t in batch)
 
     if task_id == "TASK4" or task_id == "TASK17":
-        features, spatials, image_mask, question, target, input_mask, segment_ids, multiple_choice_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            multiple_choice_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
     else:
-        features, spatials, image_mask, question, target, input_mask, segment_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
 
     batch_size = features.size(0)
     if task_cfg[task_id]["process"] in ["expand"]:
@@ -108,7 +125,18 @@ def ForwardModelsVal(args, task_cfg, device, task_id, batch, model, task_losses)
 
     task_tokens = question.new().resize_(question.size(0), 1).fill_(int(task_id[4:]))
 
-    vil_prediction, vil_prediction_gqa, vil_logit, vil_binary_prediction, vil_tri_prediction, vision_prediction, vision_logit, linguisic_prediction, linguisic_logit, _ = model(
+    (
+        vil_prediction,
+        vil_prediction_gqa,
+        vil_logit,
+        vil_binary_prediction,
+        vil_tri_prediction,
+        vision_prediction,
+        vision_logit,
+        linguisic_prediction,
+        linguisic_logit,
+        _,
+    ) = model(
         question,
         features,
         spatials,
@@ -188,13 +216,30 @@ def ForwardModelsTrain(
     batch = tuple(t.cuda(device=device, non_blocking=True) for t in batch)
 
     if task_id == "TASK4" or task_id == "TASK17":
-        features, spatials, image_mask, question, target, input_mask, segment_ids, multiple_choice_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            multiple_choice_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
     else:
-        features, spatials, image_mask, question, target, input_mask, segment_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
 
     batch_size = features.size(0)
     if task_cfg[task_id]["process"] in ["dialog"]:
@@ -311,7 +356,18 @@ def ForwardModelsTrain(
         )
 
     task_tokens = question.new().resize_(question.size(0), 1).fill_(int(task_id[4:]))
-    vil_prediction, vil_prediction_gqa, vil_logit, vil_binary_prediction, vil_tri_prediction, vision_prediction, vision_logit, linguisic_prediction, linguisic_logit, _ = model(
+    (
+        vil_prediction,
+        vil_prediction_gqa,
+        vil_logit,
+        vil_binary_prediction,
+        vil_tri_prediction,
+        vision_prediction,
+        vision_logit,
+        linguisic_prediction,
+        linguisic_logit,
+        _,
+    ) = model(
         question,
         features,
         spatials,
@@ -644,13 +700,30 @@ def EvaluatingModel(
     batch = tuple(t.cuda(device=device, non_blocking=True) for t in batch)
 
     if task_id == "TASK4" or task_id == "TASK17":
-        features, spatials, image_mask, question, target, input_mask, segment_ids, multiple_choice_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            multiple_choice_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
     else:
-        features, spatials, image_mask, question, target, input_mask, segment_ids, co_attention_mask, question_id = (
-            batch
-        )
+        (
+            features,
+            spatials,
+            image_mask,
+            question,
+            target,
+            input_mask,
+            segment_ids,
+            co_attention_mask,
+            question_id,
+        ) = batch
     batch_size = features.size(0)
 
     if task_cfg[task_id]["process"] in ["dialog"]:
@@ -769,7 +842,18 @@ def EvaluatingModel(
     task_tokens = question.new().resize_(question.size(0), 1).fill_(int(task_id[4:]))
 
     with torch.no_grad():
-        vil_prediction, vil_prediction_gqa, vil_logit, vil_binary_prediction, vil_tri_prediction, vision_prediction, vision_logit, linguisic_prediction, linguisic_logit, _ = model(
+        (
+            vil_prediction,
+            vil_prediction_gqa,
+            vil_logit,
+            vil_binary_prediction,
+            vil_tri_prediction,
+            vision_prediction,
+            vision_logit,
+            linguisic_prediction,
+            linguisic_logit,
+            _,
+        ) = model(
             question,
             features,
             spatials,

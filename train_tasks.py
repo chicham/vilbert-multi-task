@@ -10,18 +10,13 @@ import os
 import random
 from io import open
 import numpy as np
+import sys
 
-from tensorboardX import SummaryWriter
 from tqdm import tqdm
-from bisect import bisect
 import yaml
 from easydict import EasyDict as edict
 
-import pdb
-import sys
 import torch
-import torch.nn.functional as F
-import torch.nn as nn
 
 from pytorch_transformers.optimization import (
     AdamW,
@@ -61,15 +56,17 @@ def main():
         "--bert_model",
         default="bert-base-uncased",
         type=str,
-        help="Bert pre-trained model selected in the list: bert-base-uncased, "
-        "bert-large-uncased, bert-base-cased, bert-base-multilingual, bert-base-chinese.",
+        help="Bert pre-trained model selected in the list: "
+        "bert-base-uncased, bert-large-uncased, bert-base-cased,"
+        "bert-base-multilingual, bert-base-chinese.",
     )
     parser.add_argument(
         "--from_pretrained",
         default="bert-base-uncased",
         type=str,
-        help="Bert pre-trained model selected in the list: bert-base-uncased, "
-        "bert-large-uncased, bert-base-cased, bert-base-multilingual, bert-base-chinese.",
+        help="Bert pre-trained model selected in the list: "
+        "bert-base-uncased, bert-large-uncased, bert-base-cased,"
+        "bert-base-multilingual, bert-base-chinese.",
     )
     parser.add_argument(
         "--output_dir",
@@ -99,7 +96,8 @@ def main():
         "--train_iter_gap",
         default=4,
         type=int,
-        help="forward every n iteration is the validation score is not improving over the last 3 epoch, -1 means will stop",
+        help="forward every n iteration is the validation score is not improving over"
+        "the last 3 epoch, -1 means will stop",
     )
     parser.add_argument(
         "--warmup_proportion",
@@ -115,7 +113,8 @@ def main():
         "--do_lower_case",
         default=True,
         type=bool,
-        help="Whether to lower case the input text. True for uncased models, False for cased models.",
+        help="Whether to lower case the input text. True for uncased models, "
+        "False for cased models.",
     )
     parser.add_argument(
         "--local_rank",
@@ -130,7 +129,8 @@ def main():
         "--gradient_accumulation_steps",
         type=int,
         default=1,
-        help="Number of updates steps to accumualte before performing a backward/update pass.",
+        help="Number of updates steps to accumualte before performing a backward/update"
+        "pass.",
     )
     parser.add_argument(
         "--fp16",
@@ -141,9 +141,9 @@ def main():
         "--loss_scale",
         type=float,
         default=0,
-        help="Loss scaling to improve fp16 numeric stability. Only used when fp16 set to True.\n"
-        "0 (default value): dynamic loss scaling.\n"
-        "Positive power of 2: static loss scaling value.\n",
+        help="Loss scaling to improve fp16 numeric stability. Only used when fp16 set "
+        "to True.\n0 (default value): dynamic loss scaling.\nPositive power of 2: "
+        "static loss scaling value.\n",
     )
     parser.add_argument(
         "--num_workers",
@@ -235,7 +235,7 @@ def main():
 
     task_names = []
     task_lr = []
-    for i, task_id in enumerate(args.tasks.split("-")):
+    for _, task_id in enumerate(args.tasks.split("-")):
         task = "TASK" + task_id
         name = task_cfg[task]["name"]
         task_names.append(name)
@@ -300,9 +300,15 @@ def main():
             print("\n", file=f)
             print(config, file=f)
 
-    task_batch_size, task_num_iters, task_ids, task_datasets_train, task_datasets_val, task_dataloader_train, task_dataloader_val = LoadDatasets(
-        args, task_cfg, args.tasks.split("-")
-    )
+    (
+        task_batch_size,
+        task_num_iters,
+        task_ids,
+        task_datasets_train,
+        task_datasets_val,
+        task_dataloader_train,
+        task_dataloader_val,
+    ) = LoadDatasets(args, task_cfg, args.tasks.split("-"))
 
     logdir = os.path.join(savePath, "logs")
     tbLogger = utils.tbLogger(
@@ -349,7 +355,7 @@ def main():
     num_train_optimization_steps = (
         median_num_iter * args.num_train_epochs // args.gradient_accumulation_steps
     )
-    num_labels = max([dataset.num_labels for dataset in task_datasets_train.values()])
+    num_labels = max(dataset.num_labels for dataset in task_datasets_train.values())
 
     if args.dynamic_attention:
         config.dynamic_attention = True
@@ -489,7 +495,8 @@ def main():
             from apex.parallel import DistributedDataParallel as DDP
         except ImportError:
             raise ImportError(
-                "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training."
+                "Please install apex from https://www.github.com/nvidia/apex to use "
+                "distributed and fp16 training."
             )
         model = DDP(model, delay_allreduce=True)
 
@@ -536,9 +543,12 @@ def main():
                     loss.backward()
                     if (step + 1) % args.gradient_accumulation_steps == 0:
                         if args.fp16:
-                            lr_this_step = args.learning_rate * warmup_linear(
-                                global_step / num_train_optimization_steps,
-                                args.warmup_proportion,
+                            # lr_this_step = args.learning_rate * warmup_linear(
+                            #     global_step / num_train_optimization_steps,
+                            #     args.warmup_proportion,
+                            # )
+                            lr_this_step = (
+                                args.learning_rate * warmup_scheduler.get_lr()
                             )
                             for param_group in optimizer.param_groups:
                                 param_group["lr"] = lr_this_step

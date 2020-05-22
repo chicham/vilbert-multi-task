@@ -4,11 +4,11 @@ TASK1:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 1
-  dataroot: datasets/VQA/
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/VQA/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 23
   max_region_num: 101
   batch_size: 128
@@ -23,11 +23,11 @@ TASK2:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 2
-  dataroot: datasets/visual_genome/
-  features_h5path1: datasets/visual_genome/vg_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_genome/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_genome/vg_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 26
   max_region_num: 101
   batch_size: 128
@@ -42,11 +42,11 @@ TASK3:
   loss: CrossEntropyLoss
   process: dialog
   task_id: 3
-  dataroot: datasets/visual_dialog
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: datasets/visual_dialog/visdial_1.0_train.json
-  val_annotations_jsonpath: datasets/visual_dialog/visdial_1.0_val.json
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_dialog
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_dialog/visdial_1.0_train.json
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_dialog/visdial_1.0_val.json
   max_seq_length: 16
   max_region_num: 101
   batch_size: 64
@@ -60,11 +60,11 @@ TASK4:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 4
-  dataroot: datasets/visual7w
-  features_h5path1: datasets/visual7w/visual7w_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/visual7w/visual7w_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual7w
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual7w/visual7w_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual7w/visual7w_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 20
   max_region_num: 200
   batch_size: 256
@@ -78,11 +78,11 @@ TASK5:
   loss: CrossEntropyLoss
   process: expand
   task_id: 5
-  dataroot: datasets/VCR
-  features_h5path1: datasets/VCR/VCR_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/VCR/VCR_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: datasets/VCR/train.jsonl
-  val_annotations_jsonpath: datasets/VCR/val.jsonl
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/VCR_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/VCR_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/train.jsonl
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/val.jsonl
   max_seq_length: 60
   max_region_num: 101
   batch_size: 64
@@ -96,11 +96,11 @@ TASK6:
   loss: CrossEntropyLoss
   process: expand
   task_id: 6
-  dataroot: datasets/VCR
-  features_h5path1: datasets/VCR/VCR_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/VCR/VCR_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: datasets/VCR/train.jsonl
-  val_annotations_jsonpath: datasets/VCR/val.jsonl
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/VCR_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/VCR_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/train.jsonl
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/VCR/val.jsonl
   max_seq_length: 80
   max_region_num: 101
   batch_size: 64
@@ -114,14 +114,14 @@ TASK7:
   loss: CrossEntropyLoss
   process: retrieval
   task_id: 7
-  dataroot: datasets/cocoRetreival
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: datasets/cocoRetreival/all_data_final_train_2014.jsonline
-  val_annotations_jsonpath: datasets/cocoRetreival/all_data_final_test_set0_2014.jsonline
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/cocoRetreival
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/cocoRetreival/all_data_final_train_2014.jsonline
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/cocoRetreival/all_data_final_test_set0_2014.jsonline
   max_seq_length: 30
   max_region_num: 101
-  batch_size: 128
+  batch_size: 64
   train_split: train
   val_split: val
   lr: 0.00002
@@ -132,11 +132,11 @@ TASK8:
   loss: CrossEntropyLoss
   process: retrieval
   task_id: 8
-  dataroot: datasets/flickr30k
-  features_h5path1: datasets/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: datasets/flickr30k/all_data_final_train_2014.jsonline
-  val_annotations_jsonpath: datasets/flickr30k/all_data_final_test_set0_2014.jsonline
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/all_data_final_train_2014.jsonline
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/all_data_final_test_set0_2014.jsonline
   max_seq_length: 30
   max_region_num: 101
   batch_size: 128
@@ -150,11 +150,11 @@ TASK9:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 9
-  dataroot: datasets/refcoco
-  features_h5path1: datasets/refcoco/refcoco_unc/refcoco_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/refcoco/refcoco_unc/refcoco_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcoco_unc/refcoco_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcoco_unc/refcoco_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 20
   max_region_num: 101
   batch_size: 256
@@ -168,11 +168,11 @@ TASK10:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 10
-  dataroot: datasets/refcoco
-  features_h5path1: datasets/refcoco/refcoco+_unc/refcoco+_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/refcoco/refcoco+_unc/refcoco+_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcoco+_unc/refcoco+_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcoco+_unc/refcoco+_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 20
   max_region_num: 101
   batch_size: 256
@@ -187,11 +187,11 @@ TASK11:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 11
-  dataroot: datasets/refcoco
-  features_h5path1: datasets/refcoco/refcocog_umd/refcocog_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/refcoco/refcocog_umd/refcocog_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcocog_umd/refcocog_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/refcoco/refcocog_umd/refcocog_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 20
   max_region_num: 101
   batch_size: 256
@@ -206,11 +206,11 @@ TASK12:
   loss: BCEWithLogitLoss
   process: nlvr
   task_id: 12
-  dataroot: datasets/nlvr2/
-  features_h5path1: datasets/nlvr2/nlvr2_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/nlvr2/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/nlvr2/nlvr2_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 40
   max_region_num: 101
   batch_size: 64
@@ -219,17 +219,17 @@ TASK12:
   val_split: dev
   lr: 0.00002
   num_epoch: 20
-TASK13: 
+TASK13:
   name: VisualEntailment
   type: VL-tri-classifier
   loss: BCEWithLogitLoss
   process: normal
   task_id: 13
-  dataroot: datasets/visual_entailment/
-  features_h5path1: datasets/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/visual_entailment/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 56
   max_region_num: 101
   batch_size: 256
@@ -244,11 +244,11 @@ TASK14:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 14
-  dataroot: datasets/guesswhat/
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/guesswhat/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 25
   max_region_num: 101
   batch_size: 256
@@ -263,11 +263,11 @@ TASK15:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 15
-  dataroot: datasets/gqa/
-  features_h5path1: datasets/gqa/gqa_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/gqa/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/gqa/gqa_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 26
   max_region_num: 101
   batch_size: 128
@@ -282,11 +282,11 @@ TASK16:
   loss: CrossEntropyLoss
   process: normal
   task_id: 16
-  dataroot:  datasets/Foil
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: ''
-  train_annotations_jsonpath:  datasets/Foil/foilv1.0_train_2017.json
-  val_annotations_jsonpath:  datasets/Foil/foilv1.0_test_2017.json
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/Foil
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: ""
+  train_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/Foil/foilv1.0_train_2017.json
+  val_annotations_jsonpath: /home/jovyan/data-docker/datasets/vilbert-multi-task/Foil/foilv1.0_test_2017.json
   max_seq_length: 20
   max_region_num: 101
   batch_size: 256
@@ -301,11 +301,11 @@ TASK17:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 17
-  dataroot: datasets/guesswhat/
-  features_h5path1: datasets/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/guesswhat/guesswhat_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/guesswhat/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/coco/features_100/COCO_trainval_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/guesswhat/guesswhat_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 256
   max_region_num: 306
   batch_size: 64
@@ -319,11 +319,11 @@ TASK18:
   loss: BCEWithLogitLoss
   process: normal
   task_id: 18
-  dataroot: datasets/flickr30k/
-  features_h5path1: datasets/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
-  features_h5path2: datasets/flickr30k/flickr30k_gt_resnext152_faster_rcnn_genome.lmdb
-  train_annotations_jsonpath: ''
-  val_annotations_jsonpath: ''
+  dataroot: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/
+  features_h5path1: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/flickr30k_resnext152_faster_rcnn_genome.lmdb
+  features_h5path2: /home/jovyan/data-docker/datasets/vilbert-multi-task/flickr30k/flickr30k_gt_resnext152_faster_rcnn_genome.lmdb
+  train_annotations_jsonpath: ""
+  val_annotations_jsonpath: ""
   max_seq_length: 24
   max_region_num: 200
   batch_size: 256

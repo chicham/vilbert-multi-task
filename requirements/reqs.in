@@ -1,0 +1,6 @@
+pytorch-transformers==1.1.0
+tensorpack==0.9.4
+easydict==1.9
+cython
+tensorflow-gpu==1.15.2
+json-lines

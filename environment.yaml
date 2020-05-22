@@ -1,0 +1,26 @@
+name: vilbert
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - pytorch=1.4
+  - cudatoolkit=10.1.168
+  - torchvision
+  - numpy>=1.8,<2.0
+  - grpcio>=1.29
+  - protobuf>=3.12
+  - tensorboardx
+  - python-lmdb=0.94
+  - python-lmdb
+  - tqdm
+  - easydict
+  - msgpack-python>=0.5.2
+  - msgpack-numpy
+  - h5py
+  - scikit-image
+  - pyyaml
+  - pip:
+      - -r requirements/reqs.txt
+      - -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git@master#egg=apex
